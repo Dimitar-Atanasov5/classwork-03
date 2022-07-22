@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>Брой въпроси от този кръг - 4</div>
+
+
+    <script type="text/javascript">
+        const ALL_ROUNDS = 4;
+        const FIRST_ROUND_QUESTIONS = 4;
+        const SECOND_ROUND_QUESTIONS = 3;
+        const THIRD_ROUND_QUESTIONS = 2;
+        const FINAL_ROUND_QUESTIONS = 1;
+        const CORRECT_ANSWER_POINTS_AWARD = 4;
+        const SHOW_NAME = "Quizz Show";
+        
+        var currentRound = 1;
+        var currentUserPoints = 0;
+        var totalPriceAmount = 0;
+        var totalPointAmount = 0;
+        
+        var gameRules = "Igrata ima " + ALL_ROUNDS + " runda. Purvi rynd ima " + FIRST_ROUND_QUESTIONS 
+            + " vuprosa. wtori rynd ima " + SECOND_ROUND_QUESTIONS + " vuprosa."; 
+        alert(gameRules);
+
+        var firstRoundFirstQuestion = "Кога е създадена българската държава?"
+        var fristRoundFirstCorrectAnswer = 681;
+        var firstRoundSecondQuestion = "Кой ден е днес?";
+        var firstRoundSecondCorrectAnswer = "Петък";
+        var firstRoundThirdQuestion = "Какви животни харесва Мони?";
+        var firstRoundThirdCorrectAnswer = "Котки";
+        var firstRoundFourthQuestion = "Какви животинки имаме у нас?"
+        var firstRoundFourthCorrectAnswer = "Прасенца"
+        
+
+
+        
+        var firstRoundFirstAnswer = prompt(firstRoundFirstQuestion);
+
+        var isCorrectFirstRoundFirstAnswer = firstRoundFirstAnswer == fristRoundFirstCorrectAnswer;
+        console.log("Correct answer: " + isCorrectFirstRoundFirstAnswer);
+        if(isCorrectFirstRoundFirstAnswer == true) {
+            console.log("otgovoryt e veren");
+            alert("BRAVO");
+            currentUserPoints = currentUserPoints + CORRECT_ANSWER_POINTS_AWARD;
+            alert("Tvoite tochki sa: " + currentUserPoints);
+           
+        } else {
+            console.log("otgovoryt e greshen");
+            alert("TYPANAR");
+            currentUserPoints = currentUserPoints - (CORRECT_ANSWER_POINTS_AWARD/2);
+            alert("Tvoite tochki sa: " + currentUserPoints);
+        }
+
+        var firstRoundSecondAnswer = prompt(firstRoundSecondQuestion);
+
+        var isCorrectFirstRoundSecondAnswer = firstRoundSecondAnswer == firstRoundSecondCorrectAnswer;
+        console.log("Correct answer: " + isCorrectFirstRoundSecondAnswer);
+        if(isCorrectFirstRoundSecondAnswer == true) {
+            console.log("otgovoryt e veren");
+            alert("BRAVO");
+            currentUserPoints = currentUserPoints + CORRECT_ANSWER_POINTS_AWARD;
+            alert("Tvoite tochki sa: " + currentUserPoints); 
+    
+
+        }
+            else {
+            console.log("otgovoryt e greshen");
+            alert("Отговорът е грешен");
+            currentUserPoints = currentUserPoints - (CORRECT_ANSWER_POINTS_AWARD/2);
+            alert("Tvoite tochki sa: " + currentUserPoints);
+        }
+
+        var firstRoundThirdAnswer = prompt(firstRoundThirdQuestion);
+
+        var iscorrectFirstRoundThirdAnswer = firstRoundThirdAnswer == firstRoundThirdCorrectAnswer;
+        if(iscorrectFirstRoundThirdAnswer == true){
+            console.log("Отговорът е верен");
+            alert("Браво, Митак!");
+            currentUserPoints = currentUserPoints + CORRECT_ANSWER_POINTS_AWARD;
+            alert("Tвойте точки са "+ currentUserPoints);
+
+
+        }
+            else {
+            console.log("Отговорът е грешен");
+            alert("Сбърка, пич!");
+            currentUserPoints = currentUserPoints - (CORRECT_ANSWER_POINTS_AWARD/2);
+            alert("Твойте точки са " + currentUserPoints);
+
+        }
+        var firstRoundFourthAnswer = prompt(firstRoundFourthQuestion);
+
+        var isCorrectFirstRoundFourthAnswer = firstRoundFourthAnswer == firstRoundFourthCorrectAnswer;
+        if(isCorrectFirstRoundFourthAnswer == true) {
+            console.log("Отговорът е верен");
+            alert("Браво!");
+            currentUserPoints = currentUserPoints + CORRECT_ANSWER_POINTS_AWARD;
+            alert("Твойте точки са " + currentUserPoints);
+
+        
+        }
+            else {
+            console.log("Отговорът е грешен");
+            alert("Много си смотан");
+            currentUserPoints = currentUserPoints - (CORRECT_ANSWER_POINTS_AWARD/2);
+            alert("Точките ти са " + currentUserPoints);
+
+
+        }
+
+
+        var playerFirstName = prompt("Как се казваш - първо име");
+        var playerSecondName = prompt("Как се казваш - фамилия");
+        var playerAge = prompt("На колко години си");
+        var playerGender = prompt("Какъв пол си");
+        
+        console.log(`Първо име ${playerFirstName}`);
+        console.log(`Второ име ${playerSecondName}`);
+        console.log(`Възраст ${playerAge}`);
+        console.log(`Пол ${playerGender}`);
+
+        alert("Всички данни са записани успешно")
+
+        var isPlayerUnderaged = playerAge < 18;
+        var isPlayerAnAdoult = playerAge == 18;
+        var isPlayerIn35AgeCategory = playerAge > 18 && playerAge <= 35;
+        var isPlayerIn65AgeExactly = playerAge == 65;
+
+        if(isPlayerUnderaged) {
+            totalPriceAmount = 0;
+            totalPointAmount = 0;
+        }
+        else if(isPlayerAnAdoult) {
+            totalPriceAmount = totalPriceAmount + 5;
+        }
+        else if(isPlayerIn35AgeCategory) {
+            totalPriceAmount = totalPriceAmount + 10;
+        }
+        else if(isPlayerIn65AgeExactly) {
+            totalPriceAmount = totalPointAmount + 60;
+        }
+        else {
+            totalPriceAmount = totalPriceAmount + 1;
+        }
+
+        totalPriceAmount = totalPriceAmount + (totalPointAmount * 10);
+
+        if(totalPriceAmount > 0) {
+            console.log(`Получаваш сумата от ${totalPriceAmount}`);          
+        }
+        else if(totalPriceAmount < 0) {
+            console.log(`Дължиш сумата от ${totalPriceAmount}`);            
+        }
+        else {
+            console.log("Благодаря за участието");
+        }
+
+
+
+
+
+        // function seyHello(firstName) {
+        //     var greeting = "Hello " + firstName;
+        //     console.log("inside function: " + greeting);
+        //     return greeting;
+        // }
+       
+        // var seyHelloResult = seyHello("Gosho");
+        // alert("alert: " + seyHelloResult);
+        
+        // var currentRound   = 1;
+        // var questionNumber = 4;
+        // var priceAmount    = prompt("Каква да е сумата")
+        // var gameRule       = 'Брой въпроси от ' + currentRound + ' кръг: ' + questionNumber + ' за сума от ' + priceAmount    
+
+        // alert(gameRule);
+
+        // var totalPointAmount = 0;
+
+        // // данни свързани с първи въпрос
+        // var firstQuestion              ="Кога е създадена българската държава? ";
+        // var firstQuestionPointAmount   = 4;
+        // var firstQuestionCorrectAnswer = 681;
+        
+
+        // // задаваме въпроса
+        // var firstQuestionUserAnswer   = prompt(firstQuestion);
+        // var isFirstQuestionAnswerCorrect = (firstQuestionUserAnswer == firstQuestionCorrectAnswer);  
+        // console.log("Correct answer: " + firstQuestionCorrectAnswer);
+        // console.log(firstQuestionUserAnswer);
+        // console.log(isFirstQuestionAnswerCorrect);
+        
+
+    </script>
+    
+    
+    
+
+    
+</body>
+</html>
